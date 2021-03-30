@@ -25,6 +25,21 @@ function linkAction(){
 }
 navLink.forEach(n => n.addEventListener('click', linkAction));
 
+/*===Progressbar===*/
+const scrollProgressIndicator = document.querySelector(
+    ".scroll-progress-indicator"
+  );
+  
+  const postContent = document.querySelector(".Blog");
+  
+  window.addEventListener("scroll", () => {
+    let scrollAmount = window.scrollY;
+    let postHeight = postContent.clientHeight - window.innerHeight + 120;
+  
+    let progress = Math.min((scrollAmount / postHeight) * 100, 100);
+  
+    scrollProgressIndicator.style.width = progress + "%";
+  });
 /*===== SCROLL REVEAL ANIMATION =====*/
 const sr = ScrollReveal({
     origin: 'top',
